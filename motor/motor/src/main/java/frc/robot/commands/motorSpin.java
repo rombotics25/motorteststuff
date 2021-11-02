@@ -9,9 +9,13 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Motor;
 
 /** An example command that uses an example subsystem. */
+
+
+
 public class motorSpin extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Motor m_motor;
+  double value;
 
 
   public motorSpin(Motor motor) {
@@ -27,7 +31,7 @@ public class motorSpin extends CommandBase {
   @Override
   public void execute() {
 
-      m_motor.motor.set(0.2);
+      m_motor.motor.set(value);
   }
 
   // Called once the command ends or is interrupted.

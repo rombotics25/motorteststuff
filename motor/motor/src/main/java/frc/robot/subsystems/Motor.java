@@ -16,10 +16,14 @@ public class Motor extends SubsystemBase {
 
     public final WPI_TalonFX motor;
 
+    public double speed;
+
   public Motor() {
 
       motor = new WPI_TalonFX(2);
       motor.setInverted(TalonFXInvertType.Clockwise);
+
+      speed = 0.2;
       
   }
 

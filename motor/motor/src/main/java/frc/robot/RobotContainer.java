@@ -8,8 +8,10 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.motorSpin;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.Motor;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -22,6 +24,7 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final XboxController driverController = new XboxController(0);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final Motor m_motor = new Motor();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -40,6 +43,11 @@ public class RobotContainer {
 
     JoystickButton aButton = new JoystickButton(driverController, XboxController.Button.kA.value);
     JoystickButton lBumper = new JoystickButton(driverController, XboxController.Button.kBumperLeft.value);
+    JoystickButton bButton = new JoystickButton(driverController, XboxController.Button.kB.value);
+
+    aButton.whenPressed(new motorSpin(m_motor));
+
+
   }
 
   /**
